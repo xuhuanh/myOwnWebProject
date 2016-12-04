@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myOwn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-controller="helloAngulars">
+        <p>{{greeting.text}},angular</p>
+    </div>
+    <div>
+        Your name: <input type="text" ng-model="yourname" placeholder="World">
+        <hr>
+        Hello {{yourname || 'World'}}!
+    </div>
+</body>
+
+<script src="../js/angularjs/angular-1.5.9.js"></script>
+<script src="../js/hello.js"></script>
+
+</html>
