@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="InfoForm">
+<head>
+    <meta charset="UTF-8">
+    <title>用户表单</title>
+</head>
+<body ng-controller="infoFormCtrl">
+
+    <h1>User Info</h1>
+    <label>E-mail</label>
+    <input type="email" ng-model="user.email">
+
+    <label>Last name</label>
+    <input type="text" ng-model="user.lastName">
+
+    <label>First name</label>
+    <input type="text" ng-model="user.firstName">
+
+    <label>Website</label>
+    <input type="url" ng-model="user.website">
+
+    <label>Description</label>
+    <textarea ng-model = "user.description"></textarea>
+
+    <label>Password</label>
+    <input type="password" ng-model="user.password"
+    ng-minlength="3" ng-maxlength="10" ng-pattern="/^.*(?=.*\d)(?=.*[a-zA-Z]).*$/">
+
+    <label>Password(repeat)</label>
+    <input type="password" ng-model="repeatPassword">
+
+    <label>Roles</label>
+    <label class="checkbox">
+    <input type="checkbox" ng-model="user.role" ng-true-value = {{admin}} ng-fasle-value="2">Is Adminstrator</input>
+    </label>
+
+    <label>
+        <input type="radio" ng-model="user.sex" value="male">
+        Male
+    </label>
+
+    <label>
+        <input type="radio" ng-model="user.sex" value="female">
+        Female
+    </label>
+
+    <select ng-model="sex">
+        <option value="m" ng-selected="sex=='m'">Male</option>
+        <option value="f" ng-selected="sex=='f'">Female</option>
+    </select>
+    <pre ng-bind="user | json"></pre>
+</body>
+<script src="../js/angularjs/angular-1.5.9.js"></script>
+<script src="../js/infoForm.js"></script>
+</html>
