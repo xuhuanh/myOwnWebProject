@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pratice">
+<head>
+    <meta charset="UTF-8">
+    <title>mvc理解</title>
+    <script src="../js/angularjs/angular-1.5.9.js"></script>
+
+</head>
+<body>
+<div ng-controller="helloAngular">
+    <hello></hello>
+    <div ng-controller="helloAngular1">
+        <input ng-model="greeting.text">
+        <p>{{greeting.text}},Angular</p>
+        <button ng-click="test1()">test1</button>
+
+    </div>
+    <div ng-controller="helloAngular2">
+        <p>{{greeting.text}},Angular</p>
+        <button ng-click="test2()">test2</button>
+    </div>
+    <button ng-click="commonFn()">通用</button>
+
+</div>
+<hr />
+<div ng-controller="listCtrl">
+    <ol>
+        <li ng-repeat="name in names">
+            {{name}} from {{department}}
+        </li>
+    </ol>
+</div>
+<hr />
+<div ng-controller="eventController">
+    Root scope
+    <tt>MyEvent</tt> count:{{count}}
+    <ul>
+        <li ng-repeat="i in [1]" ng-controller="eventController">
+            <button ng-click="$emit('MyEvent')">
+                $emit('MyEvent')
+            </button>
+            <button ng-click="$broadcast('MyEvent')">
+                $broadcast('MyEvent')
+            </button>
+
+        <br>
+        Middle scope
+        <tt>MyEvent</tt> count:{{count}}
+        <ul>
+            <li ng-repeat="item in [1,2]" ng-controller="eventController">
+                Leaf scope
+                <tt>MyEvent</tt> count:{{count}}
+            </li>
+        </ul>
+        </li>
+
+    </ul>
+</div>
+</body>
+<script src="../js/mvc.js"></script>
+<script src="../js/directive.js"></script>
+</html>
